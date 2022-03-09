@@ -23,6 +23,8 @@
 #include "Keyboard.h"
 #include "Mouse.h"
 #include "Graphics.h"
+#include "Player.h"
+#include "Box.h"
 
 class Game
 {
@@ -40,7 +42,10 @@ private:
 private:
 	MainWindow& wnd;
 	Graphics gfx;
+	Keyboard kbd;
 	/********************************/
 	/*  User Variables              */
+	Player p1;
+	Box box;
 	/********************************/
 };

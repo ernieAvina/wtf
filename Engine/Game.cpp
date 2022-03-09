@@ -21,10 +21,12 @@
 #include "MainWindow.h"
 #include "Game.h"
 
-Game::Game( MainWindow& wnd )
+Game::Game(MainWindow& wnd)
 	:
-	wnd( wnd ),
-	gfx( wnd )
+	wnd(wnd),
+	gfx(wnd),
+	p1(Vec2{100,100}, Vec2{0,0}),
+	box(Vec2{400, 300})
 {
 }
 
@@ -38,8 +40,19 @@ void Game::Go()
 
 void Game::UpdateModel()
 {
+	p1.Update(wnd.kbd, gfx, box);
+	if (p1.CollisionTest(box))
+	{
+		box.SetColor(Colors::Yellow);
+	}
+	else
+	{
+		box.SetColor(Colors::Red);
+	}
 }
 
 void Game::ComposeFrame()
 {
+	p1.Draw(gfx);
+	box.Draw(gfx);
 }
