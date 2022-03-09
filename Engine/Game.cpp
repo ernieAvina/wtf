@@ -40,7 +40,9 @@ void Game::Go()
 
 void Game::UpdateModel()
 {
-	p1.Update(wnd.kbd, gfx, box);
+	const float dt = ft.Mark();
+
+	p1.Update(wnd.kbd, gfx, box, dt);
 	if (p1.CollisionTest(box))
 	{
 		box.SetColor(Colors::Yellow);

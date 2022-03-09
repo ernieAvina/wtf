@@ -6,27 +6,27 @@ Player::Player(Vec2 in_pos, Vec2 in_vel)
 	vel = in_vel;
 }
 
-void Player::Update(Keyboard& kbd, Graphics& gfx, Box box)
+void Player::Update(Keyboard& kbd, Graphics& gfx, Box box, float dt)
 {
-	pos.x += vel.x;
-	pos.y += vel.y;
+	pos.x += vel.x * dt;
+	pos.y += vel.y * dt;
 	vel *= .9;
 
 	if(kbd.KeyIsPressed('W'))
 	{
-		vel.y = -3;
+		vel.y = -300;
 	}
 	if (kbd.KeyIsPressed('S'))
 	{
-		vel.y = 3;
+		vel.y = 300;
 	}
 	if (kbd.KeyIsPressed('D'))
 	{
-		vel.x = 3;
+		vel.x = 300;
 	}
 	if (kbd.KeyIsPressed('A'))
 	{
-		vel.x = -3;
+		vel.x = -300;
 	}
 
 	if (CollisionTest(box))
@@ -41,7 +41,7 @@ void Player::Update(Keyboard& kbd, Graphics& gfx, Box box)
 			pos.x = box.GetPos().x + box.GetWidth();
 			vel.x = 0;
 		}
-		if (vel.y > 0)
+		/*if (vel.y > 0)
 		{
 			pos.y = box.GetPos().y - height;
 			vel.y = 0;
@@ -50,7 +50,7 @@ void Player::Update(Keyboard& kbd, Graphics& gfx, Box box)
 		{
 			pos.y = box.GetPos().y + box.GetHeight();
 			vel.y = 0;
-		}
+		}*/
 	}
 }
 

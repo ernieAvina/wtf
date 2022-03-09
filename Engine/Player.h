@@ -9,7 +9,7 @@ class Player
 public:
 	Player() = default;
 	Player(Vec2 in_pos, Vec2 in_vel);
-	void Update(Keyboard& kbd, Graphics& gfx, Box box);
+	void Update(Keyboard& kbd, Graphics& gfx, Box box, float dt);
 	void Draw(Graphics& gfx);
 	bool CollisionTest(Box box);
 private:

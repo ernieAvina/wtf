@@ -25,6 +25,7 @@
 #include "Graphics.h"
 #include "Player.h"
 #include "Box.h"
+#include "FrameTimer.h"
 
 class Game
 {
@@ -47,5 +48,6 @@ private:
 	/*  User Variables              */
 	Player p1;
 	Box box;
+	FrameTimer ft;
 	/********************************/
 };
